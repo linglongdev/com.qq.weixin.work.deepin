@@ -8,8 +8,8 @@ package:
   description: |
     convert from 4.1.22.6016deepin12    Tencent WXWork Client on Deepin Wine
 
-base: org.deepin.base.wine
-runtime: org.deepin.runtime.wine
+base: org.deepin.base.wine/23.0.0
+
 command:
   - /opt/apps/com.qq.weixin.work.deepin/files/run.sh
 
