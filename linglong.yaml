@@ -1,0 +1,30 @@
+version: "1"
+
+package:
+  id: com.qq.weixin.work.deepin
+  name: com.qq.weixin.work.deepin
+  version: 4.1.22.6016
+  kind: app
+  description: |
+    convert from 4.1.22.6016deepin12    Tencent WXWork Client on Deepin Wine
+
+base: org.deepin.base.wine/23.1.0
+
+command:
+  - /opt/apps/com.qq.weixin.work.deepin/files/run.sh
+
+sources:
+  - kind: file
+    url: https://aptly.uniontech.com/pkg/nonfree-eagle/release-candidate/d2luZTgtcnVudGltZTIwMjQtMDgtMjEgMTQ6NTU6MjA/pool/non-free/c/com.qq.weixin.work.deepin/com.qq.weixin.work.deepin_4.1.22.6016deepin12_amd64.deb
+    digest: e210a220528ac53fc6856ec3f4a0fc981e296b87d93ffbfb456c5775ebf73c48
+
+build: |
+  set -x
+  SOURCES="linglong/sources"
+  dpkg-deb -x $SOURCES/com.qq.weixin.work.deepin_4.1.22.6016deepin12_amd64.deb $SOURCES/com.qq.weixin.work.deepin
+  install -d $PREFIX/share
+  install -d $PREFIX/bin
+  # move files
+  cp -r $SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/entries/* $PREFIX/share
+  cp -r $SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/files/* $PREFIX
+  
