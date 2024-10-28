@@ -8,21 +8,21 @@ package:
   description: |
     convert from 4.1.22.6009deepin15    Tencent WXWork Client on Deepin Wine
 
-base: org.deepin.base.wine/23.2.0.3
-runtime: org.deepin.runtime.wine/23.2.1.3
+base: org.deepin.base.wine/23.2.0.5
+runtime: org.deepin.runtime.wine/23.2.1.4
 
 command:
   - /opt/apps/com.qq.weixin.work.deepin/files/run.sh
 
 sources:
   - kind: file
-    url: https://aptly.uniontech.com/pkg/nonfree-eagle/release-candidate/d2luZTgtcnVudGltZTIyMDI0LTA5LTAzIDEzOjE1OjAx/pool/non-free/c/com.qq.weixin.work.deepin/signed_com.qq.weixin.work.deepin_4.1.22.6009deepin15_amd64.deb
-    digest: 59e82289951dfbb16da6a15f3780c85c851e454d7a924d71713504ca43073380
+    url: https://aptly.uniontech.com/pkg/nonfree-eagle/release-candidate/d2luZTgtcnVudGltZTIyMDI0LTA5LTAzIDEzOjE1OjAx/pool/non-free/c/com.qq.weixin.work.deepin/com.qq.weixin.work.deepin_4.1.22.6009deepin17_amd64.deb
+    digest: 32c648f56dae3ef698958f4fcc774b061aeb3d46b6fa0eaa29e3d4e9b4f64954
 
 build: |
   set -x
   SOURCES="linglong/sources"
-  dpkg-deb -x $SOURCES/signed_com.qq.weixin.work.deepin_4.1.22.6009deepin15_amd64.deb $SOURCES/com.qq.weixin.work.deepin
+  dpkg-deb -x $SOURCES/com.qq.weixin.work.deepin_4.1.22.6009deepin17_amd64.deb $SOURCES/com.qq.weixin.work.deepin
   # run.sh替换
   FILE_PATH="$SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/files/run.sh" 
   sed -i -e 's|/opt/deepin-wine8-stable|/runtime/deepin-wine8-stable|g' \
