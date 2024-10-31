@@ -3,10 +3,10 @@ version: "1"
 package:
   id: com.qq.weixin.work.deepin
   name: com.qq.weixin.work.deepin
-  version: 4.1.22.6009
+  version: 1.0.0.0
   kind: app
   description: |
-    convert from 4.1.22.6009deepin15    Tencent WXWork Client on Deepin Wine
+    convert from 4.1.22.6009deepin17    Tencent WXWork Client on Deepin Wine
 
 base: org.deepin.base.wine/23.2.0.5
 runtime: org.deepin.runtime.wine/23.2.1.4
@@ -36,4 +36,3 @@ build: |
   # move files
   cp -r $SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/entries/* $PREFIX/share
   cp -r $SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/files/* $PREFIX
-  
