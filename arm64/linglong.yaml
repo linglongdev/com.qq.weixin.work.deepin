@@ -6,21 +6,27 @@ package:
   version: 1.0.0.0
   kind: app
   description: |
-    convert from 4.1.22.6009deepin10    Tencent WXWork Client on Deepin Wine
+
+    convert from 4.1.22.6010deepin19    Tencent WXWork Client on Deepin Wine
+
 
 base: org.deepin.base.wine/23.0.0/arm64
 runtime: org.deepin.runtime.wine/23.0.0/arm64
 
 command:
   - /opt/apps/com.qq.weixin.work.deepin/files/run.sh
+  
+sources:
+  - kind: file
+    url: https://aptly.uniontech.com/pkg/nonfree-eagle/release-candidate/d2luZTgtcnVudGltZTIyMDI0LTA5LTAzIDEzOjE1OjAx/pool/non-free/c/com.qq.weixin.work.deepin/signed_com.qq.weixin.work.deepin_4.1.22.6010deepin19_arm64.deb
+    digest: 87b42541a88aa1d1fd1ae45d80c2e7ee522994f4cff1fcb12244e3ca9f747091
+
 
 build: |
   set -x
   SOURCES="linglong/sources"
-  rm -rf linglong/sources  
-  mkdir linglong/sources  
-  cp com.qq.weixin.work.deepin_4.1.22.6009deepin10_arm64.deb linglong/sources   
-  dpkg-deb -x $SOURCES/com.qq.weixin.work.deepin_4.1.22.6009deepin10_arm64.deb $SOURCES/com.qq.weixin.work.deepin
+  dpkg-deb -x $SOURCES/signed_com.qq.weixin.work.deepin_4.1.22.6010deepin19_arm64.deb $SOURCES/com.qq.weixin.work.deepin
+
   # run.sh替换
   FILE_PATH="$SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/files/run.sh" 
   sed -i -e 's|/opt/deepin-wine8-stable|/runtime/deepin-wine8-stable|g' \
