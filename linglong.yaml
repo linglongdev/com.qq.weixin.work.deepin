@@ -11,6 +11,7 @@ package:
 base: org.deepin.base.wine/23.2.0
 runtime: org.deepin.runtime.wine/23.2.1
 
+
 command:
   - /opt/apps/com.qq.weixin.work.deepin/files/run.sh
 
@@ -19,10 +20,12 @@ sources:
     url: https://winedata-dev.deepin.com/apps/com.qq.weixin.work.deepin/ce9dffd/signed_com.qq.weixin.work.deepin_4.1.32.6005deepin0_amd64.deb
     digest: 5f9a6aa33fdacb3f76ef72fb83eff15326233d40ff34acb9b2b7cb66c8cec3ee
 
+
 build: |
   set -x
   SOURCES="linglong/sources"
   dpkg-deb -x $SOURCES/signed_com.qq.weixin.work.deepin_4.1.32.6005deepin0_amd64.deb $SOURCES/com.qq.weixin.work.deepin
+
   # run.sh替换
   FILE_PATH="$SOURCES/com.qq.weixin.work.deepin/opt/apps/com.qq.weixin.work.deepin/files/run.sh" 
   sed -i -e 's|/opt/deepin-wine8-stable|/runtime/deepin-wine8-stable|g' \
