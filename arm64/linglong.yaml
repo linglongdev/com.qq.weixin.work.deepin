@@ -33,8 +33,8 @@ build: |
          -e 's|/opt/deepin-wine6-stable|/runtime/deepin-wine6-stable|g' \
          -e 's|/opt/deepinwine|/runtime/deepinwine|g' \
          -e 's|/opt/deepin-box86|/runtime/deepin-box86|g' \
-         -e 's|BOTTLEPATH="$HOME/.deepinwine/$BOTTLENAME"|BOTTLEPATH="$HOME/.linglong/$BOTTLENAME"|g' "$FILE_PATH"
-   
+         -e '/BOTTLENAME=/s/$/&.linglong/' "$FILE_PATH"
+
   install -d $PREFIX/share
   install -d $PREFIX/bin
   # move files
